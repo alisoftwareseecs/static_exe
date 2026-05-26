@@ -4,17 +4,6 @@ A Java/LibGDX platformer where the simulation you inhabit is slowly breaking apa
 Toggle between stable and glitched versions of the world to solve puzzles,
 uncover the truth from fractured NPCs, and choose your ending.
 
----
-
-## Quick Start
-
-### Prerequisites
-| Tool | Version |
-|------|---------|
-| JDK  | 17 or higher |
-| IntelliJ IDEA | Any recent version (Community is fine) |
-| Gradle | Bundled — no separate install needed |
-
 ### Steps
 
 1. **Unzip** `static_exe_game.zip` anywhere on your machine.
@@ -131,42 +120,4 @@ Each system owns its own state and exposes only what others need:
 - `Player`'s velocity is private; `CollisionSystem` uses `pushOutX/Y()` and
   `setVelocityY()` rather than touching fields directly
 - `RealityShiftSystem` owns the shift timer and visual effects; callers just call `shift()`
-
----
-
-## Adding Audio (Optional)
-
-The game runs silently without audio files.
-To add sound, place OGG files in `assets/audio/`:
-
-```
-assets/audio/
-├── ambient_normal.ogg     # background music (stable world)
-├── ambient_glitch.ogg     # background music (glitch world)
-├── shift.ogg              # played when R is pressed
-└── interact.ogg           # played when E is pressed
-```
-
-Free CC0 sound sources: [freesound.org](https://freesound.org),
-[opengameart.org](https://opengameart.org)
-
----
-
-## Extending the Game
-
-### Add a new NPC type
-1. Create `MyNPC.java` in `entities/npcs/` extending `NPC`
-2. Implement `speak()` and `onInteract()`
-3. Add a new char (e.g. `'M'`) to the level map in `World.java`
-4. Add a `case 'M':` in `parseMap()` that creates your NPC
-
-### Add a new level
-The entire level is the `LEVEL_MAP` String array in `World.java`.
-Each character is one 40×40 tile. Add rows at the bottom (they appear
-higher in-game because the map is flipped vertically on load).
-
-### Add a new tile type
-1. Add a value to `Tile.Type` enum
-2. Add textures for it in `buildTextures()` in `Tile.java`
-3. Implement `isSolid(boolean glitched)` logic for it
-4. Add a map character for it in `World.parseMap()`
+- 
