@@ -120,4 +120,3 @@ Each system owns its own state and exposes only what others need:
 - `Player`'s velocity is private; `CollisionSystem` uses `pushOutX/Y()` and
   `setVelocityY()` rather than touching fields directly
 - `RealityShiftSystem` owns the shift timer and visual effects; callers just call `shift()`
-- 
