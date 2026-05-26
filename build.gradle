@@ -1,0 +1,14 @@
+buildscript {
+    repositories { mavenLocal(); mavenCentral(); gradlePluginPortal(); google()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" } }
+    dependencies { classpath 'com.android.tools.build:gradle:7.3.1' }
+}
+allprojects {
+    apply plugin: "eclipse"
+    version = '1.0'
+    ext { appName = "static-exe"; gdxVersion = '1.12.1' }
+    repositories { mavenLocal(); mavenCentral(); google()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+        maven { url "https://jitpack.io" } }
+}
